@@ -2,6 +2,7 @@ package com.amandaramos.workshopmongo.services;
 
 import com.amandaramos.workshopmongo.dominio.User;
 import com.amandaramos.workshopmongo.repository.UserRepository;
+import com.amandaramos.workshopmongo.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,10 @@ public class UserService {
 
     }
 
-
+    public User findById(String id) {
+        return repo.findById(id)
+                .orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
 
 
 }

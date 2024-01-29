@@ -15,9 +15,10 @@ public class UserService {
     //instanciando pela injeção de denpendencia
     @Autowired
     private UserRepository repo;
+
     public List<User> findAll() {
 
-    return repo.findAll();
+        return repo.findAll();
 
     }
 
@@ -26,11 +27,16 @@ public class UserService {
                 .orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
-    public User fromDTO(UserDTO objDto) {
-        return new User(objDto.getId(), objDto.getName(),  objDto.getEmail() );
-    }
-
     public User insert(User obj) {
         return repo.save(obj);
     }
+    public  void delete(String id) {
+      repo.deleteById(id);
+    }
+
+    public User fromDTO(UserDTO objDto) {
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+    }
+
+
 }

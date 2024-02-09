@@ -1,5 +1,6 @@
 package com.amandaramos.workshopmongo.resources;
 
+import com.amandaramos.workshopmongo.dominio.Post;
 import com.amandaramos.workshopmongo.dominio.User;
 import com.amandaramos.workshopmongo.dto.UserDTO;
 import com.amandaramos.workshopmongo.services.UserService;
@@ -74,6 +75,16 @@ public class UserResource {
         // Retorna uma resposta vazia (204 No Content) na resposta HTTP
             return ResponseEntity.noContent().build();
         }
+
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    // Método para encontrar um posts por ID
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        // Encontra o usuário pelo ID usando o serviço
+        User obj = service.findById(id);
+        // Retorna os posts do usuário encontrado na resposta HTTP
+        return ResponseEntity.ok().body(obj.getPosts());
+
+    }
 
     }
 

@@ -10,8 +10,9 @@ import java.util.Objects;
  essa classe para um documento no MongoDB.*/
 @Document(collection="user")
 public class User  implements Serializable {
-    private static final long serialVersionUID = 1L;
-    //criação atributos
+
+    // Definição de um número de série estático para controle de versão durante a serialização/desserialização de objetos
+    private static final long serialVersionUID = -7193926967102431430L;
    @Id // Anotação para indicar que este atributo será o ID do documento no MongoDB
     private String id;
     private String name;

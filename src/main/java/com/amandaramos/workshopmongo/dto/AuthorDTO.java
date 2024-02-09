@@ -7,8 +7,10 @@ import java.io.Serializable;
 /*Declaração da classe UserDTO, que implementa a interface Serializable.
 Isso significa que objetos desta classe podem ser serializados e desserializados. */
 public class AuthorDTO implements Serializable {
+
     // Definição de um número de série estático para controle de versão durante a serialização/desserialização de objetos
-    private  static  final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 2542048007772148905L;
+
 
     //Declaração dos atributos
     private  String id;

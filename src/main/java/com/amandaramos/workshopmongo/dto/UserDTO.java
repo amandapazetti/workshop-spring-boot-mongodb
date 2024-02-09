@@ -9,7 +9,9 @@ Isso significa que objetos desta classe podem ser serializados e desserializados
 public class UserDTO  implements Serializable {
 
     // Definição de um número de série estático para controle de versão durante a serialização/desserialização de objetos
-    private  static  final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -6757321551592563030L;
+
+
 
     //Declaração dos atributos
     private  String id;

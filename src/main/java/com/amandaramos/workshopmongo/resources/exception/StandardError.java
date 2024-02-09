@@ -2,18 +2,28 @@ package com.amandaramos.workshopmongo.resources.exception;
 
 import java.io.Serializable;
 
+//// Esta classe representa um erro padrão que será retornado como resposta em caso de exceção.
 public class StandardError implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    private  Long timestamp;
-    private Integer status;
-    private String error;
-    private String message;
-    private String path;
+    // Identificador único de versão usado durante serialização e desserialização para garantir compatibilidade.
+        private static final long serialVersionUID = 6916634323117872709L;
 
+
+
+
+   //construindo atributos que serão retornados na resposta de erro
+    private  Long timestamp; // Momento em que o erro ocorreu.
+    private Integer status; // Código HTTP do erro.
+    private String error; // Tipo de erro.
+    private String message; // Mensagem de erro.
+    private String path; // Caminho do recurso que causou o erro.
+
+
+    // Construtor padrão.
     public StandardError() {
 
     }
+    //Construindo construtor com parametros
     public StandardError(Long timestamp, Integer status, String error, String path, String message) {
         this.timestamp = timestamp;
         this.status = status;
@@ -24,7 +34,7 @@ public class StandardError implements Serializable {
     }
 
 
-
+//Usando Getters e Seterrs para acessar e modificar atributos
     public Long getTimestamp() {
         return timestamp;
     }
@@ -65,3 +75,8 @@ public class StandardError implements Serializable {
         this.path = path;
     }
 }
+
+/*Resumo: No geral, esta classe fornece uma estrutura básica para representar
+ e lidar com erros de forma consistente em uma aplicação, facilitando a
+ comunicação de informações sobre erros para os clientes ou usuários da
+ aplicação.*/
